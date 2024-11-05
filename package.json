@@ -1,0 +1,11 @@
+{
+  "name": "envelopebudgeting",
+  "version": "1.0.0",
+  "description": "An envelope budgeting API",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "andrew indeche",
+  "license": "MIT"
+}
