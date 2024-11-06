@@ -22,7 +22,6 @@ app.listen(PORT, () => {
   });
 
 app.get('/',(req,res) => {
-    res.send("Hello World. Welcome to Express envelope budgeting system");
     res.status(200).send(`Your budgets are:${ envelopes, totalBudget }`);
 });
 
