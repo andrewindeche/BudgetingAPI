@@ -1,7 +1,7 @@
 # Envelope budgeting
 The project contains an API that allows clients to create and manage a personal budget. Using Envelope Budgeting principles, the API allows users to manage budget envelopes and track the balance of each envelope.
 
-Built using Express Js, Node Js
+Built using Express Js, Node Js, Mongo Db
 
 # Installing
 To install the dependencies:
