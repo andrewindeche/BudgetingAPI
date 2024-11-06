@@ -2,7 +2,10 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const salariesRouter = require('./server/api');
+const salariesRouter = require('./server/salaries');
+
+let envelopes = [];
+let totalBudget = 0;
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,7 +21,7 @@ app.listen(PORT, () => {
 
 app.get('/',(req,res) => {
     res.send("Hello World. Welcome to Express envelope budgeting system");
-    res.status(200).send({ envelopes, totalBudget });
+    res.status(200).send(`Your budgets are:${ envelopes, totalBudget }`);
 });
 
 module.exports = app;
