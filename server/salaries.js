@@ -92,6 +92,34 @@ salariesRouter.delete('/:id', async(req,res)=> {
     } catch(error) {
         return res.status(500).send("Error retrieving envelope: " + error.message);
     };
-})
+});
+
+salariesRouter.put('/:id', async (req, res) => {
+    const { id } = req.params; 
+    const { amountToSubtract } = req.body; 
+
+    if (!amountToSubtract || amountToSubtract <= 0) {
+        return res.status(400).send("Invalid amount to subtract");
+    }
+
+    try {
+        const envelope = await Envelope.findById(id);
+        if (!envelope) {
+            return res.status(404).send("Envelope not found");
+        }
+
+        envelope.budget -= amountToSubtract;
+
+        if (envelope.budget < 0) {
+            return res.status(400).send("Not enough budget in envelope");
+        }
+
+        await envelope.save();
+
+        return res.status(200).json(envelope);
+    } catch (error) {
+        return res.status(500).send("Error updating envelope: " + error.message);
+    }
+});
 
 module.exports = salariesRouter;
