@@ -10,7 +10,7 @@ const EnvelopeSchema = new Schema({
   budget: {
     type: Number,
     required: true
-  }
+  },
 });
 
 module.exports = mongoose.model('Envelope', EnvelopeSchema);
