@@ -79,7 +79,19 @@ salariesRouter.get('/:id', async (req,res) => {
         return res.status(200).json(envelope);
     } catch (error) {
         return res.status(500).send("Error retrieving envelope: " + error.message);
+
     }
 });
+
+salariesRouter.delete('/:id', async(req,res)=> {
+     const {id} = req.params;
+    try {
+        const envelope = await Envelope.findByIdAndDelete(id);
+        !envelope 
+            ? (res.status(404).send("not found")):res.status(200).send("succesfully deleted");
+    } catch(error) {
+        return res.status(500).send("Error retrieving envelope: " + error.message);
+    };
+})
 
 module.exports = salariesRouter;

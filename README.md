@@ -10,6 +10,10 @@ To install the dependencies:
 To start the project:
 - npm run start
 
+To start MongoDb service:
+
+- sudo mongod --dbpath /mnt/wsl/data/db
+
 # Routes
 <b>Homepage<b>
  /
